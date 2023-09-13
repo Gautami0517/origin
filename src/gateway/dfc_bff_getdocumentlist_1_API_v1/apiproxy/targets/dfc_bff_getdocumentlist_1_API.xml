@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="dfc_bff_getdocumentlist_1_API">
+    <Description>dfc_bff_getdocumentlist_1_API</Description>
+	<FaultRules>
+	</FaultRules>
+	<DefaultFaultRule>
+            <Step>
+                <Name>SF-PostflowResponseTargetLogAggregator</Name>
+            </Step>
+    	<AlwaysEnforce>true</AlwaysEnforce>
+	</DefaultFaultRule>
+	<PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>SF-PreflowRequestTargetLogAggregator</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+	<Flows>
+        <Flow name="1">
+        	<Condition>(targetOperation = &quot;1&quot;)</Condition>
+			<Request>
+			</Request>   
+			<Response>
+			</Response>
+        </Flow>
+        <Flow name="2">
+        	<Condition>(targetOperation = &quot;2&quot;)</Condition>
+			<Request>
+			</Request>   
+			<Response>
+			</Response>
+        </Flow>
+        <Flow name="3">
+        	<Condition>(targetOperation = &quot;3&quot;)</Condition>
+			<Request>
+			</Request>   
+			<Response>
+			</Response>
+        </Flow>
+        <Flow name="4">
+        	<Condition>(targetOperation = &quot;4&quot;)</Condition>
+			<Request>
+			</Request>   
+			<Response>
+			</Response>
+        </Flow>
+	</Flows>
+    <PostFlow name="PostFlow">
+        <Request>
+            <Step>
+                <Name>SF-PostflowRequestTargetLogAggregator</Name>
+            </Step>
+        </Request>
+        <Response>
+            <Step>
+                <Name>SF-PostflowResponseTargetLogAggregator</Name>
+            </Step>
+        </Response>
+    </PostFlow>
+    <HTTPTargetConnection>
+    	<LoadBalancer>
+            <Server name="dfc_bff_getdocumentlist_1_API">
+                <IsEnabled>true</IsEnabled>
+            </Server>
+        </LoadBalancer>
+        <Path>/mycare/digital-filing-cabinet/dfc-bff-getdocumentlist/v1</Path>
+    </HTTPTargetConnection>
+</TargetEndpoint>
